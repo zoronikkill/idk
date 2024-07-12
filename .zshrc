@@ -1,3 +1,7 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
@@ -8,8 +12,6 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
-
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
@@ -71,7 +73,6 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git zsh-syntax-highlighting)
-plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -116,6 +117,33 @@ path_color="%F{cyan}"
 reset_color="%F{white}"
 
 # Настройка PROMPT
-PROMPT="${user_color}%n@${host_color}%m ${path_color}%~ ${reset_color}"
+#PROMPT="${user_color}%n@${host_color}%m ${path_color}%~ ${reset_color}"
 
 #eval "$(starship init zsh)"
+export LANG=ru_RU.UTF-8
+export LC_ALL=ru_RU.UTF-8
+
+# Set the return status prompt
+local ret_status="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ %s)"
+
+# Configure the main prompt to use %~
+PROMPT='${ret_status}%{$fg_bold[green]%}%p %{$fg[cyan]%}%~ %{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%}$(svn_prompt_info)%{$reset_color%}'
+
+# Git prompt settings
+ZSH_THEME_GIT_PROMPT_PREFIX="git:(%{$fg[red]%}"
+ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%})%{$fg[yellow]%} ✗ %{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%}) "
+
+# Base color for the prompt
+ZSH_PROMPT_BASE_COLOR="%{$fg_bold[blue]%}"
+
+# Repo name color
+ZSH_THEME_REPO_NAME_COLOR="%{$fg_bold[red]%}"
+
+# SVN prompt settings
+ZSH_THEME_SVN_PROMPT_PREFIX="svn:("
+ZSH_THEME_SVN_PROMPT_SUFFIX=")"
+ZSH_THEME_SVN_PROMPT_DIRTY="%{$fg[red]%} ✘ %{$reset_color%}"
+ZSH_THEME_SVN_PROMPT_CLEAN=" "
+
