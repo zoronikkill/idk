@@ -103,6 +103,8 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias py="python"
+alias vim="nvim"
+alias cls="clear"
 
 export CLANG_FORMAT_STYLE="~/.clang-format"
 export CLANG_TIDY_CHECKS="~/.clang-tidy"
@@ -120,8 +122,6 @@ reset_color="%F{white}"
 #PROMPT="${user_color}%n@${host_color}%m ${path_color}%~ ${reset_color}"
 
 #eval "$(starship init zsh)"
-export LANG=ru_RU.UTF-8
-export LC_ALL=ru_RU.UTF-8
 
 # Set the return status prompt
 local ret_status="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ %s)"
@@ -147,3 +147,6 @@ ZSH_THEME_SVN_PROMPT_SUFFIX=")"
 ZSH_THEME_SVN_PROMPT_DIRTY="%{$fg[red]%} ✘ %{$reset_color%}"
 ZSH_THEME_SVN_PROMPT_CLEAN=" "
 
+
+#export LANG=ru_RU.UTF-8
+#export LC_ALL=ru_RU.UTF-8
