@@ -1,0 +1,7 @@
+[user]
+	name = Никита Пономарев
+	email = nickbred82@gmail.com
+[init]
+	defaultBranch = main
+[core]
+	editor = /usr/bin/vim

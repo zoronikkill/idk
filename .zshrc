@@ -103,8 +103,8 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias py="python"
-alias vim="nvim"
-alias cls="clear"
+# alias cls="clear"
+# alias vim="nvim"
 
 export CLANG_FORMAT_STYLE="~/.clang-format"
 export CLANG_TIDY_CHECKS="~/.clang-tidy"

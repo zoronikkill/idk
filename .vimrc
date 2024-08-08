@@ -1,3 +1,17 @@
+set number
+
+inoremap <C-h> <Left>
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
+inoremap <C-l> <Right>
+
+set undofile
+set undodir=~/.vim/undodir
+set undolevels=1000
+set undoreload=10000
+
+
+
 set nocompatible
 set encoding=utf-8
 set vb t_vb=
@@ -13,8 +27,8 @@ set ic
 set smartcase
 
 set nornu
-"set colorcolumn=80
-"set tw=80
+"set colorcolumn=80 "com
+"set tw=80 "com
 
 set ai
 set cindent
@@ -36,20 +50,19 @@ endif
 set background=dark
 set laststatus=2
 set cursorline
-"set foldmethod=syntax
-"set foldlevelstart=0
-"let xml_syntax_folding=1
+"set foldmethod=syntax "заком
+"set foldlevelstart=0 "заком
+"let xml_syntax_folding=1 "заком
 
 filetype off
 
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.vim/plugged') "заком
 set rtp+=~/.vim/bundle/vundle/
-"call vundle#rc()
-
-"packadd YouCompleteMe
-
-Plug 'svermeulen/vundle'
-Plug 'ycm-core/YouCompleteMe'
+"call vundle#rc() "заком
+"все заком
+packadd YouCompleteMe
+"Plug 'svermeulen/vundle'
+"Plug 'ycm-core/YouCompleteMe'
  Plug 'flazz/vim-colorschemes'
  Plug 'jaxbot/semantic-highlight.vim'
  Plug 'luochen1990/rainbow'
@@ -58,15 +71,19 @@ Plug 'ycm-core/YouCompleteMe'
  Plug 'airblade/vim-gitgutter'
  Plug 'ctrlpvim/ctrlp.vim'
  Plug 'vim-scripts/The-NERD-tree'
+ Plug 'tpope/vim-commentary'
  Plug 'vim-scripts/surround.vim'
- Plug 'bling/vim-airline'
- Plug 'vim-airline/vim-airline-themes'
+" Plug 'bling/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
  Plug 'easymotion/vim-easymotion'
  Plug 'kris2k/a.vim'
- call plug#end()
+call plug#end() "заком
 
+" Disable function highlighting (affects both C and C++ files)
 let g:cpp_function_highlight = 0
+
 let g:plug_shallow = 0
+
 let g:rainbow_active=0
 
 let g:ycm_global_ycm_extra_conf = '$HOME/.vim/ycm_extra_conf/ycm_extra_conf.py'
@@ -93,23 +110,23 @@ endtry
 
 let mapleader=' '
 
-nnoremap <M-f> * :vimgrep /<C-R>// **/*.cpp **/*.[ch] **/*.hpp <CR> :copen<CR>
-vnoremap <M-f> y :vimgrep /<C-R>"/ **/*.cpp **/*.[ch] **/*.hpp <CR> :copen<CR>
+nnoremap <Leader>f * :vimgrep /<C-R>// **/*.cpp **/*.[ch] **/*.hpp <CR> :copen<CR>
+vnoremap <Leader>f y :vimgrep /<C-R>"/ **/*.cpp **/*.[ch] **/*.hpp <CR> :copen<CR>
 
-nnoremap <M-e><M-w> : e ++enc=cp1251<CR>
-nnoremap <M-e><M-u> : e ++enc=utf-8<CR>
+nnoremap <Leader>e<Leader>w : e ++enc=cp1251<CR>
+nnoremap <Leader>e<Leader>u : e ++enc=utf-8<CR>
 
-nnoremap <F12> : YcmCompleter GoToDefinitionElseDeclaration<CR>
-nnoremap <F5> : YcmForceCompileAdnDiagnostics<CR><CR>
+nnoremap <F12> :split<CR>:YcmCompleter GoToDefinitionElseDeclaration<CR>
+nnoremap <F5> :YcmForceCompileAndDiagnostics<CR><CR>
 nnoremap <F11> : YcmCompleter FixIt<CR>
 
 " DoxygenToolKit mappings
 imap /** <Esc> :Dox<CR>
-nnoremap <M-d> :Dox<CR>
+nnoremap <Leader>d :Dox<CR>
 
 " Switch source/header
 nnoremap <F4> :A<CR>
-nnoremap <M-o> : NERDTreeToggle <CR>
+nnoremap <Leader>o : NERDTreeToggle <CR>
 nnoremap <C-w>t :tabnew<CR>
 
 " Toggle rainbow colors
@@ -119,16 +136,16 @@ nnoremap <F6> :SemanticHighlightToggle<CR>:RainbowToggle<CR>
 set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫУГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыугмцчня;abcdefghijklmnopqrstuvwxyz
 
 " Tab mappings
-map <M-1> 1gt
-map <M-2> 2gt
-map <M-3> 3gt
-map <M-4> 4gt
-map <M-5> 5gt
-map <M-6> 6gt
-map <M-7> 7gt
-map <M-8> 8gt
-map <M-9> 9gt
-map <M-0> 10gt
+map <Leader>1 1gt
+map <Leader>2 2gt
+map <Leader>3 3gt
+map <Leader>4 4gt
+map <Leader>5 5gt
+map <Leader>6 6gt
+map <Leader>7 7gt
+map <Leader>8 8gt
+map <Leader>9 9gt
+map <Leader>10 10gt
 
 " Selection to table
-vnoremap <M-t> :!column -t \| sed -e "s/\s\+$//g"<CR>
+vnoremap <Leader>t :!column -t \| sed -e "s/\s\+$//g"<CR>
