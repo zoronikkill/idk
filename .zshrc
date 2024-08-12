@@ -118,16 +118,13 @@ host_color="%F{green}"
 path_color="%F{cyan}"
 reset_color="%F{white}"
 
-# Настройка PROMPT
-#PROMPT="${user_color}%n@${host_color}%m ${path_color}%~ ${reset_color}"
-
 #eval "$(starship init zsh)"
 
 # Set the return status prompt
 local ret_status="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ %s)"
 
 # Configure the main prompt to use %~
-PROMPT='${ret_status}%{$fg_bold[green]%}%p %{$fg[cyan]%}%~ %{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%}$(svn_prompt_info)%{$reset_color%}'
+PROMPT='%{$user_color%}%n@%{$host_color%}%m %{$path_color%}%~%{$fg_bold[blue]%} $(git_prompt_info)$(svn_prompt_info)%{$reset_color%}\$ '
 
 # Git prompt settings
 ZSH_THEME_GIT_PROMPT_PREFIX="git:(%{$fg[red]%}"
