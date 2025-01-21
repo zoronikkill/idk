@@ -72,7 +72,9 @@ export ZSH="$HOME/.oh-my-zsh"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-syntax-highlighting)
+#plugins=(git zsh-syntax-highlighting)
+plugins=(git zsh-autosuggestions)
+#plugins=(git zsh-autosuggestions zsh-completions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -102,12 +104,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias py="python"
-# alias cls="clear"
+alias la="ls -Alht"
 # alias vim="nvim"
-
-export CLANG_FORMAT_STYLE="~/.clang-format"
-export CLANG_TIDY_CHECKS="~/.clang-tidy"
 
 # Включение поддержки цветов
 autoload -U colors && colors
@@ -147,3 +145,11 @@ ZSH_THEME_SVN_PROMPT_CLEAN=" "
 
 #export LANG=ru_RU.UTF-8
 #export LC_ALL=ru_RU.UTF-8
+# Start Docker daemon automatically when logging in if not running.
+RUNNING=`ps aux | grep dockerd | grep -v grep`
+if [ -z "$RUNNING" ]; then
+    sudo dockerd > /dev/null 2>&1 &
+    disown
+fi
+
+#source ~/venv/bin/activate
