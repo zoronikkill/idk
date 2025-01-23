@@ -56,28 +56,28 @@ set cursorline
 
 filetype off
 
-call plug#begin('~/.vim/plugged') "заком
-set rtp+=~/.vim/bundle/vundle/
+"call plug#begin('~/.vim/plugged') "заком
+"set rtp+=~/.vim/bundle/vundle/
 "call vundle#rc() "заком
 "все заком
-packadd YouCompleteMe
+"packadd YouCompleteMe
 "Plug 'svermeulen/vundle'
 "Plug 'ycm-core/YouCompleteMe'
- Plug 'flazz/vim-colorschemes'
- Plug 'jaxbot/semantic-highlight.vim'
- Plug 'luochen1990/rainbow'
- Plug 'vim-scripts/DoxygenToolkit.vim'
- Plug 'tpope/vim-fugitive'
- Plug 'airblade/vim-gitgutter'
- Plug 'ctrlpvim/ctrlp.vim'
- Plug 'vim-scripts/The-NERD-tree'
- Plug 'tpope/vim-commentary'
- Plug 'vim-scripts/surround.vim'
+" Plug 'flazz/vim-colorschemes'
+" Plug 'jaxbot/semantic-highlight.vim'
+" Plug 'luochen1990/rainbow'
+" Plug 'vim-scripts/DoxygenToolkit.vim'
+" Plug 'tpope/vim-fugitive'
+" Plug 'airblade/vim-gitgutter'
+" Plug 'ctrlpvim/ctrlp.vim'
+" Plug 'vim-scripts/The-NERD-tree'
+" Plug 'tpope/vim-commentary'
+" Plug 'vim-scripts/surround.vim'
 " Plug 'bling/vim-airline'
 " Plug 'vim-airline/vim-airline-themes'
- Plug 'easymotion/vim-easymotion'
- Plug 'kris2k/a.vim'
-call plug#end() "заком
+" Plug 'easymotion/vim-easymotion'
+" Plug 'kris2k/a.vim'
+"call plug#end() "заком
 
 " Disable function highlighting (affects both C and C++ files)
 let g:cpp_function_highlight = 0
